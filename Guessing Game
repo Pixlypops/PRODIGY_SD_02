@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+  cout << "======================================" << endl;
+  cout << "== Welcome to the Guessing Game ==" << endl;
+  cout << "======================================" << endl;
+  cout << "|RULES OF THE GAME|" << endl;
+  cout << " ----------------- " << endl;
+  cout << "1. You have 5 chances to guess the number.\n";
+  cout << "2. The number is between 1 and 439.\n";
+  cout << "3. You have to guess the number in the least chances.\n";
+  cout << "4. You will get a hint after each guess.\n";
+  cout << "5. You start with 100 points\n";
+  cout << "6. Each guess you miss, you will lose 20 points.\n";
+  cout << "7. If you guess the number, you will get 100 points.\n";
+  cout << "8. If you lose all your chances, you will lose the game.\n";
+  cout << "9. If you guess the number, you will win the game.\n";
+  cout << "10. Good Luck!\n";
+  cout << "======================================" << endl;
+  srand(time(0));
+  int randomNumber = rand() % 498 + 1;
+  int playerGuess;
+  int count = 0;
+  int points = 100;
+  int maxCount = 5;
+  
+  while (count < maxCount)
+  {
+   cout << "Please Enter a Number Between 1 and 439: ";
+    cin >> playerGuess;
+    if (playerGuess < 1 || playerGuess > 439){
+      cout << "Invalid Input. Please Enter a Number Between 1 and 439: ";
+      continue;
+    }
+   
+    
+      if (playerGuess > randomNumber)
+      {
+        cout << "\n\nYour guess is too high. Please try again.\n";
+        count++;
+        points -= 20;
+        
+      } else if (playerGuess < randomNumber)
+      { cout << "\n\nYour guess is too low. Please try again.\n";
+       count++;
+       points -= 20;
+      } else /*if (playerGuess > randomNumber)*/
+      {
+        count++;
+        cout << "\n\n\nCongratulations! You have guessed the number in " << count << " tries.\n";
+        cout << "You have won the game!\n";
+        return 0;
+      }
+    }  
+    
+     
+  if (count >= maxCount)
+    {
+      cout << "Sorry, you have used all your chances. You have lost the game.\n";
+      return 0;
+    }
+}
