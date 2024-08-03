@@ -81,6 +81,7 @@ int main() {
       count++;
       cout << "\n\n\nCongratulations! You have guessed the number in " << count << " tries.\n";
       cout << "You have won the game!\n";
+      cout << "You won with " << points << " ppoints left\n";
       return 0;
     }
   }
