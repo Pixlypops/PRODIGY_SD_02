@@ -81,7 +81,7 @@ int main() {
       count++;
       cout << "\n\n\nCongratulations! You have guessed the number in " << count << " tries.\n";
       cout << "You have won the game!\n";
-      cout << "You won with " << points << " ppoints left\n";
+      cout << "You won with " << points << " points left\n";
       return 0;
     }
   }
@@ -89,6 +89,7 @@ int main() {
   // Losing condition
   if (count >= maxCount) {
     cout << "Sorry, you have used all your chances. You have lost the game.\n";
+    cout << "The number was " << randomNumber << ".\n";
     return 0;
   }
 }
